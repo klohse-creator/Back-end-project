@@ -4,6 +4,8 @@ import jakarta.persistence.Entity;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.Set;
+
 
 @Entity
 @Data
@@ -28,6 +30,7 @@ public class Customer {
     private Division division;
 
     private Set<Cart> carts;
+
 
 
 

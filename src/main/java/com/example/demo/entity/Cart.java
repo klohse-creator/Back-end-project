@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.Set;
 
 @Entity
 @Data
@@ -17,7 +18,7 @@ public class Cart {
 
     private BigDecimal package_price;
 
-    private Integer party_size;
+    private int party_size;
 
     private StatusType status;
 
@@ -27,6 +28,6 @@ public class Cart {
 
     private Customer customer;
 
-    privart Set<CartItem> cartItem;
+    private Set<CartItem> cartItem;
 
 }
