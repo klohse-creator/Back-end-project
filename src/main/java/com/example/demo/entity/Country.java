@@ -1,30 +1,37 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Data
-@Table(name = "COUNTRIES")
+@Getter
+@Setter
+@Table(name = "countries")
 public class Country {
 
-    @Column(name = "Country_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "country_id")
     private Long id;
 
-    @Column(name = "Country")
+    @Column(name = "country")
     private String country_name;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     private Date last_update;
 
+    @OneToMany
+    @JoinColumn(name ="country_id")
     private Set<Division> divisions;
 
+    public Country() {
+    }
 }

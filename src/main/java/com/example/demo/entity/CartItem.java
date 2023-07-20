@@ -1,34 +1,36 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Data
-@Table(name = "CART_ITEMS")
+@Getter
+@Setter
+@Table(name = "cart_items")
 
 public class CartItem {
 
-    @Column(name = "Cart_Item_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cart_item_id")
     private Long id;
 
-    @Column(name = "Vacation ID")
+    @Column(name = "vacation id")
     private Vacation vacation;
 
     private Set<Excursion> excursions;
 
-    @Column(name = "Cart_ID")
+    @Column(name = "cart_id")
     private Cart cart;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column (name = "Last_Update")
+    @Column (name = "last_update")
     private Date last_update;
 
 }

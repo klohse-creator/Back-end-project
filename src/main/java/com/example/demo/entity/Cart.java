@@ -1,41 +1,46 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import lombok.Data;
+
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Data
-@Table(name ="CARTS")
+@Getter
+@Setter
+@Table(name ="carts")
 
 public class Cart {
 
-    @Column(name = "Cart_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "cart_id")
     private Long id;
 
-    @Column(name = "Order_Tracking_Number")
+    @Column(name = "order_tracking_number")
     private String orderTrackingNumber;
 
-    @Column(name = "Package_Price")
+    @Column(name = "package_price")
     private BigDecimal package_price;
 
-    @Column(name = "Party_Size")
+    @Column(name = "party_size")
     private int party_size;
 
-    @Column(name = "Status")
+    @Column(name = "status")
     private StatusType status;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     private Date last_update;
 
-    @Column(name = "Customer_ID")
+    @Column(name = "customer_id")
     private Customer customer;
 
     private Set<CartItem> cartItem;

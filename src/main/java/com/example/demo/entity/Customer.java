@@ -1,44 +1,47 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
-import lombok.Data;
+import jakarta.persistence.*;
+
+import lombok.Getter;
+import lombok.Setter;
 
 import java.util.Date;
 import java.util.Set;
 
 
 @Entity
-@Data
-@Table(name = "CUSTOMERS")
+@Getter
+@Setter
+@Table(name = "customers")
 public class Customer {
 
-    @Column(name = "Customer_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "customer_id")
     private Long id;
 
-    @Column(name = "First_Name")
+    @Column(name = "first_name")
     private String firstName;
 
-    @Column(name = "Last_Name")
+    @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "Address")
+    @Column(name = "address")
     private String address;
 
-    @Column(name = "Postal_Code")
+    @Column(name = "postal_code")
     private String postal_code;
 
-    @Column(name = "Phone")
+    @Column(name = "phone")
     private String phone;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     private Date last_update;
 
-    @Column(name = "Division_ID")
+    @Column(name = "division_id")
     private Division division;
 
     private Set<Cart> carts;

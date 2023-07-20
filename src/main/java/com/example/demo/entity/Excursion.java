@@ -1,38 +1,41 @@
 package com.example.demo.entity;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
-@Data
-@Table(name = "EXCURSIONS")
+@Getter
+@Setter
+@Table(name = "excursions")
 public class Excursion {
 
-    @Column(name = "Excursion_ID")
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "excursion_id")
     private Long id;
 
-    @Column(name = "Excursion_Title")
+    @Column(name = "excursion_title")
     private String excursion_title;
 
-    @Column(name = "Excursion_Price")
+    @Column(name = "excursion_price")
     private BigDecimal excursion_price;
 
-    @Column(name = "Image_URL")
+    @Column(name = "image_url")
     private String image_URL;
 
-    @Column(name = "Create_Date")
+    @Column(name = "create_date")
     private Date create_date;
 
-    @Column(name = "Last_Update")
+    @Column(name = "last_update")
     private Date last_update;
 
-    @Column(name = "Vacation_ID")
+    @Column(name = "vacation_id")
     private Vacation vacation;
 
     private Set<CartItem> cartitems;
