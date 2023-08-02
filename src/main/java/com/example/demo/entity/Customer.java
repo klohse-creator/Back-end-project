@@ -4,12 +4,16 @@ import jakarta.persistence.*;
 
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
 
 import java.util.Date;
+import java.util.HashSet;
 import java.util.Set;
 
 
-@Entity
+@Entity(name = "Customer")
 @Getter
 @Setter
 @Table(name = "customers")
@@ -36,20 +40,39 @@ public class Customer {
     private String phone;
 
     @Column(name = "create_date")
+    @CreationTimestamp
     private Date create_date;
 
     @Column(name = "last_update")
+    @UpdateTimestamp
     private Date last_update;
 
-    @Column(name = "division_id")
+    @ManyToOne
+    @JoinColumn(name = "division_id", nullable = false)
     private Division division;
 
-    private Set<Cart> carts;
+    @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
+    private Set<Cart> carts = new HashSet<>();
 
 
+    public void add(Cart cart) {
+        if (cart != null) {
+            if (carts == null) {
+                carts = new HashSet<>();
 
+            }
+            carts.add(cart);
+            cart.setCustomer(this);
 
-
-
-
+        }
+    }
 }
+
+
+
+
+
+
+
+
+

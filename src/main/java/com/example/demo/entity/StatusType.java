@@ -6,8 +6,7 @@ import lombok.Getter;
 
 import lombok.Setter;
 
-@Entity
-@Getter
+
 
 public enum StatusType {
     PENDING,
