@@ -1,15 +1,15 @@
 package com.example.demo.service;
 
-import jakarta.persistence.Entity;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
+import lombok.NonNull;
 
-@Entity
-@Getter
-@Setter
+@Data
+
+
 
 public class PurchaseResponse {
 
+    @NonNull
     private String orderTrackingNumber;
 }
