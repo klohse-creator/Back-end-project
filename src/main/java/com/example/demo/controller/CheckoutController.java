@@ -1,7 +1,7 @@
 package com.example.demo.controller;
 
 import com.example.demo.service.CheckoutService;
-import com.example.demo.service.Purchase;
+import com.example.demo.service.PurchaseData;
 import com.example.demo.service.PurchaseResponse;
 import org.springframework.web.bind.annotation.*;
 
@@ -18,10 +18,10 @@ public class CheckoutController {
     }
 
 
-    @PostMapping("/purchase")
-    public PurchaseResponse placeOrder(@RequestBody Purchase purchase) {
+    @PostMapping("/purchaseData")
+    public PurchaseResponse placeOrder(@RequestBody PurchaseData purchaseData) {
 
-        PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchase);
+        PurchaseResponse purchaseResponse = checkoutService.placeOrder(purchaseData);
 
         return purchaseResponse;
 

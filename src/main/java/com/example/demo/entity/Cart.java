@@ -9,6 +9,7 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
@@ -17,7 +18,6 @@ import java.util.Set;
 @Getter
 @Setter
 @Table(name ="carts")
-
 public class Cart {
 
     @Id
@@ -39,11 +39,11 @@ public class Cart {
 
     @Column(name = "create_date")
     @CreationTimestamp
-    private Date create_date;
+    private LocalDateTime create_date;
 
     @Column(name = "last_update")
     @UpdateTimestamp
-    private Date last_update;
+    private LocalDateTime last_update;
 
    @ManyToOne
     @JoinColumn(name = "customer_id")

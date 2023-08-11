@@ -4,18 +4,21 @@ import com.example.demo.entity.Cart;
 import com.example.demo.entity.CartItem;
 import com.example.demo.entity.Customer;
 import jakarta.persistence.Entity;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 
 import java.util.Set;
 
 
-@Entity
+
 @Getter
 @Setter
-
-public class Purchase {
+@NoArgsConstructor
+@AllArgsConstructor
+public class PurchaseData {
 
     private Customer customer;
 

@@ -2,19 +2,20 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.Set;
 
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @Table(name = "cart_items")
-
-
 public class CartItem {
 
 
@@ -27,21 +28,21 @@ public class CartItem {
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
-    @OneToMany
-    @JoinColumn(name = "excursion_id")
-    private Set<Excursion> excursions;
+   // @OneToMany
+    //@JoinColumn(name = "excursion_id")
+    //private Set<Excursion> excursions;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")
     private Cart cart;
 
-    @Column(name = "create_date")
+    @Column(name = "create_date", nullable = false)
     @CreationTimestamp
-    private Date create_date;
+    private LocalDateTime create_date;
 
-    @Column (name = "last_update")
+    @Column (name = "last_update", nullable = false)
     @UpdateTimestamp
-    private Date last_update;
+    private  LocalDateTime  last_update;
 
 
 
