@@ -8,7 +8,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -34,8 +33,6 @@ public class Division {
     @UpdateTimestamp
     private  LocalDateTime  last_update;
 
-
-
     @Column(name = "country_id")
     private Long country_id;
 
@@ -52,6 +49,16 @@ public class Division {
     private Set<Customer> customers = new HashSet<>();
 
 
-    public Division() {
+    public Division(String division_name) {
     }
+
+    public Set<Customer> getCustomers() {
+        return customers;
+    }
+    public void setCustomers(Set<Customer> customers) {
+     this.customers = customers;
+    }
+
+
 }
+

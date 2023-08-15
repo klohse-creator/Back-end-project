@@ -25,6 +25,10 @@ public class CheckoutServiceImpl implements CheckoutService{
     public CheckoutServiceImpl(CustomerRepository customerRepository) {
         this.customerRepository = customerRepository;
     }
+
+
+
+
     @Override
     @Transactional
     public PurchaseResponse placeOrder(PurchaseData purchaseData) {

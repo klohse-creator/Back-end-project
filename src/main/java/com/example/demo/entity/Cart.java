@@ -45,7 +45,7 @@ public class Cart {
     @UpdateTimestamp
     private LocalDateTime last_update;
 
-   @ManyToOne
+    @ManyToOne
     @JoinColumn(name = "customer_id")
     private Customer customer;
 
@@ -55,14 +55,15 @@ public class Cart {
 
     public void add(CartItem item) {
 
-        if(item != null) {
+        if (item != null) {
             if (cartItems == null) {
-                cartItems =  new HashSet<>();
+                cartItems = new HashSet<>();
             }
             cartItems.add(item);
             item.setCart(this);
         }
 
     }
-
 }
+
+

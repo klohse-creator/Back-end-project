@@ -3,7 +3,7 @@ package com.example.demo.entity;
 import jakarta.persistence.*;
 
 import lombok.Getter;
-import lombok.NoArgsConstructor;
+
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -17,9 +17,24 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
-@NoArgsConstructor
 @Table(name = "customers")
 public class Customer {
+
+    private final String country;
+    Set<Division> divisions;
+
+
+   public Customer(String firstName, String lastName, String address, String postal_code,
+                   String phone, String country) {
+
+            this.firstName = firstName;
+            this.lastName = lastName;
+            this.address = address;
+            this.postal_code = postal_code;
+            this.phone = phone;
+            this.country = country;
+
+    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,11 +66,10 @@ public class Customer {
 
     @ManyToOne
     @JoinColumn(name = "division_id", referencedColumnName = "division_id", nullable = false)
-    private Division division;
+    private String division;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts = new HashSet<>();
-
 
     public void add(Cart cart) {
         if (cart != null) {
@@ -68,6 +82,18 @@ public class Customer {
 
         }
     }
+
+    public Set<Division> getDivision() {
+        return divisions;
+    }
+
+    public void setDivision(Set<Division> divisions) {
+        this.divisions = divisions;
+    }
+
+
+
+
 }
 
 
