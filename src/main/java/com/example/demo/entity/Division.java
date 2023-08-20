@@ -2,7 +2,9 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -14,6 +16,8 @@ import java.util.Set;
 @Entity
 @Setter
 @Getter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "divisions")
 public class Division {
 
@@ -48,11 +52,6 @@ public class Division {
     @OneToMany
     @JoinColumn(name= "division_id")
     private Set<Customer> customers = new HashSet<>();
-
-
-    public Division(String division_name) {
-        this.division_name = division_name;
-    }
 
 
 

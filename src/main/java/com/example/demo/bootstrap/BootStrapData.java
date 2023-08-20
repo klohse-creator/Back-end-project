@@ -48,17 +48,17 @@ public class BootStrapData implements CommandLineRunner {
             customerRepository.save(becca);
         }
 
-        Customer kraig = new Customer();
-        kraig.setId(3L);
-        kraig.setFirstName("Kraig");
-        kraig.setLastName("Lohse");
-        kraig.setAddress("123 Hollister");
-        kraig.setPostal_code("48067");
-        kraig.setPhone("5553452121");
-        kraig.setDivision(divisionRepository.getReferenceById(20L));
+        Customer reese = new Customer();
+        reese.setId(3L);
+        reese.setFirstName("Reese");
+        reese.setLastName("Talton");
+        reese.setAddress("451 Thompson St");
+        reese.setPostal_code("48069");
+        reese.setPhone("5553452121");
+        reese.setDivision(divisionRepository.getReferenceById(6L));
 
-        if (!customerRepository.existsById(2L)) {
-            customerRepository.save(kraig);
+        if (!customerRepository.existsById(3L)) {
+            customerRepository.save(reese);
         }
 
         Customer nola = new Customer();
