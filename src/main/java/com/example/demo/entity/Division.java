@@ -44,20 +44,18 @@ public class Division {
         setCountry_id(country.getId());
         this.country = country;
     }
+
     @OneToMany
     @JoinColumn(name= "division_id")
     private Set<Customer> customers = new HashSet<>();
 
 
     public Division(String division_name) {
+        this.division_name = division_name;
     }
 
-    public Set<Customer> getCustomers() {
-        return customers;
-    }
-    public void setCustomers(Set<Customer> customers) {
-     this.customers = customers;
-    }
+
+
 
 
 }

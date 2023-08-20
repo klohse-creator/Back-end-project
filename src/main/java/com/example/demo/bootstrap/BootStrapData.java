@@ -3,7 +3,6 @@ package com.example.demo.bootstrap;
 import com.example.demo.dao.CustomerRepository;
 import com.example.demo.dao.DivisionRepository;
 import com.example.demo.entity.Customer;
-import com.example.demo.entity.Division;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -23,50 +22,71 @@ public class BootStrapData implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Customer Kali = new Customer("Kali", "Lohse", "123 Hollister",
-                "48067", "4064801996", "US");
-        Division Michigan = new Division("Michigan");
-        Kali.getDivision().add(Michigan);
-        Michigan.getCustomers().add(Kali);
+        Customer kali = new Customer();
+        kali.setId(1L);
+        kali.setFirstName("Kali");
+        kali.setLastName("Lohse");
+        kali.setAddress("123 Hollister");
+        kali.setPostal_code("48067");
+        kali.setPhone("4064801996");
+        kali.setDivision(divisionRepository.getReferenceById(20L));
 
-        customerRepository.save(Kali);
-        divisionRepository.save(Michigan);
+        if (!customerRepository.existsById(1L)) {
+            customerRepository.save(kali);
+        }
 
-        Customer Becca = new Customer("Becca", "Smith", "555 Hollywood Blvd",
-                "90210", "5862228670", "US");
-        Division California = new Division("California");
-        Becca.getDivision().add(California);
-        California.getCustomers().add(Becca);
+        Customer becca = new Customer();
+        becca.setId(2L);
+        becca.setFirstName("Becca");
+        becca.setLastName("Smith");
+        becca.setAddress("555 Hollywood Blvd");
+        becca.setPostal_code("90210");
+        becca.setPhone("5862228670");
+        becca.setDivision(divisionRepository.getReferenceById(5L));
 
-        customerRepository.save(Becca);
-        divisionRepository.save(California);
+        if (!customerRepository.existsById(2L)) {
+            customerRepository.save(becca);
+        }
 
-        Customer Kraig = new Customer("Kraig", "Lohse", "123 Hollister",
-                "48067", "5553452121", "US");
-        Division Vermont = new Division("Vermont");
-        Kraig.getDivision().add(Vermont);
-        Vermont.getCustomers().add(Kraig);
+        Customer kraig = new Customer();
+        kraig.setId(3L);
+        kraig.setFirstName("Kraig");
+        kraig.setLastName("Lohse");
+        kraig.setAddress("123 Hollister");
+        kraig.setPostal_code("48067");
+        kraig.setPhone("5553452121");
+        kraig.setDivision(divisionRepository.getReferenceById(20L));
 
-        customerRepository.save(Kraig);
-        divisionRepository.save(Vermont);
+        if (!customerRepository.existsById(2L)) {
+            customerRepository.save(kraig);
+        }
 
-        Customer Nola = new Customer("Nola", "Gentry", "2111 Woodson Drive",
-                "59102", "3459991001", "US");
-        Division Montana = new Division("Montana");
-        Nola.getDivision().add(Montana);
-        Montana.getCustomers().add(Nola);
+        Customer nola = new Customer();
+        nola.setId(4L);
+        nola.setFirstName("Nola");
+        nola.setLastName("Gentry");
+        nola.setAddress("2111 Woodson Drive");
+        nola.setPostal_code("59102");
+        nola.setPhone("5555555555");
+        nola.setDivision(divisionRepository.getReferenceById(10L));
 
-        customerRepository.save(Nola);
-        divisionRepository.save(Montana);
+        if (!customerRepository.existsById(4L)) {
+            customerRepository.save(nola);
+        }
 
-        Customer Jenna = new Customer("Jenna", "Lechner", "457 Great Street",
-                "44321", "3210001021", "US");
-        Division Oregon = new Division("Oregon");
-        Jenna.getDivision().add(Oregon);
-        Oregon.getCustomers().add(Jenna);
+        Customer jenna = new Customer();
+        jenna.setId(5L);
+        jenna.setFirstName("Jenna");
+        jenna.setLastName("Lechner");
+        jenna.setAddress("457 Great Street");
+        jenna.setPostal_code("44321");
+        jenna.setPhone("3210001021");
+        jenna.setDivision(divisionRepository.getReferenceById(12L));
 
-        customerRepository.save(Jenna);
-        divisionRepository.save(Oregon);
+        if (!customerRepository.existsById(5L)) {
+            customerRepository.save(jenna);
+        }
+
 
 
 

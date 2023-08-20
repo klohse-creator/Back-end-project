@@ -2,39 +2,25 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
-
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
-
-import java.time.LocalDateTime;
+import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
 @Getter
 @Setter
 @Table(name = "customers")
 public class Customer {
-
-    private final String country;
-    Set<Division> divisions;
-
-
-   public Customer(String firstName, String lastName, String address, String postal_code,
-                   String phone, String country) {
-
-            this.firstName = firstName;
-            this.lastName = lastName;
-            this.address = address;
-            this.postal_code = postal_code;
-            this.phone = phone;
-            this.country = country;
-
-    }
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -58,15 +44,15 @@ public class Customer {
 
     @Column(name = "create_date", nullable = false)
     @CreationTimestamp
-    private  LocalDateTime  create_date;
+    private Date create_date;
 
     @Column(name = "last_update", nullable = false)
     @UpdateTimestamp
-    private LocalDateTime last_update;
+    private Date last_update;
 
     @ManyToOne
     @JoinColumn(name = "division_id", referencedColumnName = "division_id", nullable = false)
-    private String division;
+    private Division division;
 
     @OneToMany(mappedBy = "customer", cascade = CascadeType.ALL)
     private Set<Cart> carts = new HashSet<>();
@@ -82,19 +68,9 @@ public class Customer {
 
         }
     }
-
-    public Set<Division> getDivision() {
-        return divisions;
-    }
-
-    public void setDivision(Set<Division> divisions) {
-        this.divisions = divisions;
-    }
-
-
-
-
 }
+
+
 
 
 
