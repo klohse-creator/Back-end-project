@@ -62,7 +62,7 @@ public class CheckoutServiceImpl implements CheckoutService{
 
         //return a response
         return new PurchaseResponse(orderTrackingNumber);
-        //return enum type here too?
+
     }
 
     private String generateOrderTrackingNumber() {

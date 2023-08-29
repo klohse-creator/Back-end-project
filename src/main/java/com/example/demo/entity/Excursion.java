@@ -1,10 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -17,6 +14,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "excursions")
 public class Excursion {
 
@@ -31,7 +29,7 @@ public class Excursion {
     @Column(name = "excursion_price", nullable = false)
     private BigDecimal excursion_price;
 
-    @Column(name = "image_URL", nullable = false)
+    @Column(name = "image_url", nullable = false)
     private String image_URL;
 
     @Column(name = "create_date", nullable = false)
@@ -46,20 +44,9 @@ public class Excursion {
     @JoinColumn(name = "vacation_id", referencedColumnName = "vacation_id")
     private Vacation vacation;
 
-   /* @OneToMany
+    @OneToMany
     @JoinColumn(name = "excursion_id")
-    private Set<CartItem> cartItems; */
+    private Set<CartItem> cartItems;
 
-    public Excursion(String excursion_title, BigDecimal excursion_price,
-                     String image_URL, LocalDateTime create_date,
-                     LocalDateTime last_update,
-                     Vacation vacation) {
 
-        this.excursion_title = excursion_title;
-        this.excursion_price = excursion_price;
-        this.image_URL = image_URL;
-        this.create_date = create_date;
-        this.last_update = last_update;
-        this.vacation = vacation;
-    }
 }

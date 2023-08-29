@@ -1,6 +1,7 @@
 package com.example.demo.entity;
 
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,6 +16,7 @@ import java.util.Set;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "cart_items")
 public class CartItem {
 
@@ -28,9 +30,9 @@ public class CartItem {
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
-   // @OneToMany
-    //@JoinColumn(name = "excursion_id")
-    //private Set<Excursion> excursions;
+    @OneToMany
+    @JoinColumn(name = "excursion_id")
+    private Set<Excursion> excursions;
 
     @ManyToOne
     @JoinColumn(name = "cart_id")

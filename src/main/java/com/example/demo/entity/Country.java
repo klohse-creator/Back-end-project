@@ -2,7 +2,9 @@ package com.example.demo.entity;
 
 import jakarta.persistence.*;
 
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -13,6 +15,8 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Table(name = "countries")
 public class Country {
 
@@ -34,6 +38,4 @@ public class Country {
     @JoinColumn(name ="country_id")
     private Set<Division> divisions;
 
-    public Country() {
-    }
 }
