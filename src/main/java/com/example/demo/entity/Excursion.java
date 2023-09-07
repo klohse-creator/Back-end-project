@@ -7,7 +7,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -41,11 +40,12 @@ public class Excursion {
     private LocalDateTime last_update;
 
     @ManyToOne
-    @JoinColumn(name = "vacation_id", referencedColumnName = "vacation_id")
+    @JoinColumn(name = "vacation_id" /*, referencedColumnName = "vacation_id" */)
     private Vacation vacation;
 
-    @OneToMany
-    @JoinColumn(name = "excursion_id")
+   // @OneToMany
+  //  @JoinColumn(name = "excursion_id")
+    @ManyToMany(mappedBy = "excursions")
     private Set<CartItem> cartItems;
 
 

@@ -1,5 +1,7 @@
 package com.example.demo.entity;
 
+
+
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,7 +11,6 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.Set;
 
 @Entity
@@ -30,8 +31,12 @@ public class CartItem {
     @JoinColumn(name = "vacation_id")
     private Vacation vacation;
 
-    @OneToMany
-    @JoinColumn(name = "excursion_id")
+  /*  @OneToMany
+    @JoinColumn(name = "excursion_id") */
+    @ManyToMany
+    @JoinTable(name = "excursion_cartitem",
+    joinColumns = @JoinColumn(name = "cart_item_id"),
+            inverseJoinColumns = @JoinColumn(name = "excursion_id"))
     private Set<Excursion> excursions;
 
     @ManyToOne

@@ -23,7 +23,7 @@ public class BootStrapData implements CommandLineRunner {
     public void run(String... args) throws Exception {
 
         Customer kali = new Customer();
-        kali.setId(2L);
+        kali.setId(1L);
         kali.setFirstName("Kali");
         kali.setLastName("Lohse");
         kali.setAddress("123 Hollister");
@@ -31,12 +31,12 @@ public class BootStrapData implements CommandLineRunner {
         kali.setPhone("4064801996");
         kali.setDivision(divisionRepository.getReferenceById(20L));
 
-        if (!customerRepository.existsById(2L)) {
+        if (!customerRepository.existsById(1L)) {
             customerRepository.save(kali);
         }
 
         Customer becca = new Customer();
-        becca.setId(3L);
+        becca.setId(2L);
         becca.setFirstName("Becca");
         becca.setLastName("Smith");
         becca.setAddress("555 Hollywood Blvd");
@@ -44,12 +44,12 @@ public class BootStrapData implements CommandLineRunner {
         becca.setPhone("5862228670");
         becca.setDivision(divisionRepository.getReferenceById(12L));
 
-        if (!customerRepository.existsById(3L)) {
+        if (!customerRepository.existsById(2L)) {
             customerRepository.save(becca);
         }
 
         Customer reese = new Customer();
-        reese.setId(4L);
+        reese.setId(3L);
         reese.setFirstName("Reese");
         reese.setLastName("Talton");
         reese.setAddress("451 Thompson St");
@@ -57,12 +57,12 @@ public class BootStrapData implements CommandLineRunner {
         reese.setPhone("5553452121");
         reese.setDivision(divisionRepository.getReferenceById(13L));
 
-        if (!customerRepository.existsById(4L)) {
+        if (!customerRepository.existsById(3L)) {
             customerRepository.save(reese);
         }
 
         Customer nola = new Customer();
-        nola.setId(5L);
+        nola.setId(4L);
         nola.setFirstName("Nola");
         nola.setLastName("Gentry");
         nola.setAddress("2111 Woodson Drive");
@@ -70,12 +70,12 @@ public class BootStrapData implements CommandLineRunner {
         nola.setPhone("5555555555");
         nola.setDivision(divisionRepository.getReferenceById(10L));
 
-        if (!customerRepository.existsById(5L)) {
+        if (!customerRepository.existsById(4L)) {
             customerRepository.save(nola);
         }
 
         Customer jenna = new Customer();
-        jenna.setId(6L);
+        jenna.setId(5L);
         jenna.setFirstName("Jenna");
         jenna.setLastName("Lechner");
         jenna.setAddress("457 Great Street");
@@ -83,7 +83,7 @@ public class BootStrapData implements CommandLineRunner {
         jenna.setPhone("3210001021");
         jenna.setDivision(divisionRepository.getReferenceById(15L));
 
-        if (!customerRepository.existsById(6L)) {
+        if (!customerRepository.existsById(5L)) {
             customerRepository.save(jenna);
         }
 

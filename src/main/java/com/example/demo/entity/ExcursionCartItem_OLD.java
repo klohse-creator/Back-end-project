@@ -11,7 +11,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Table(name = "excursion_cartitem")
-public class ExcursionCartItem {
+public class ExcursionCartItem_OLD {
 
     @Id
     @ManyToOne

@@ -44,10 +44,10 @@ public class Division {
     @JoinColumn(name = "country_id", nullable = false, insertable = false, updatable = false)
     private Country country;
 
-    public void setCountry(Country country) {
-        setCountry_id(country.getId());
-        this.country = country;
-    }
+//    public void setCountry(Country country) {
+//        setCountry_id(country.getId());
+//        this.country = country;
+//    }
 
     @OneToMany
     @JoinColumn(name= "division_id")

@@ -12,7 +12,6 @@ import org.hibernate.annotations.UpdateTimestamp;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -29,9 +28,6 @@ public class Cart {
     @Column(name = "cart_id")
     private Long id;
 
-    @Column(name = "order_tracking_number")
-    private String orderTrackingNumber;
-
     @Column(name = "package_price")
     private BigDecimal package_price;
 
@@ -39,7 +35,11 @@ public class Cart {
     private int party_size;
 
     @Column(name = "status")
+    @Enumerated(EnumType.STRING)
     private StatusType status;
+
+    @Column(name = "order_tracking_number")
+    private String orderTrackingNumber;
 
     @Column(name = "create_date")
     @CreationTimestamp
@@ -68,6 +68,18 @@ public class Cart {
         }
 
     }
+
+
+  /* public Cart(String orderTrackingNumber, BigDecimal package_price, int party_size, StatusType status, LocalDateTime create_date, LocalDateTime last_update) {
+
+        this.orderTrackingNumber = orderTrackingNumber;
+        this.package_price = package_price;
+        this.party_size = party_size;
+        this.status = status;
+        this.create_date = create_date;
+        this.last_update = last_update;
+
+    } */
 }
 
 
